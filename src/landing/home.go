@@ -9,7 +9,7 @@ import (
 )
 
 func Home(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	t, err := template.ParseFiles("views/layout/default.tmpl", "views/pages/home.tmpl")
+	t, err := template.ParseFiles("views/layouts/default.tmpl", "views/pages/home.tmpl")
 
 	if err != nil {
 		log.Fatal(err)
