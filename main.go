@@ -13,6 +13,9 @@ func main() {
 	r := httprouter.New()
 	// router
 	r.GET("/", landing.Home)
-	r.NotFound = http.StripPrefix("/static/", http.FileServer(http.Dir("./static/")))
+	// static
+	fs := http.FileServer(http.Dir("./static/"))
+	r.NotFound = http.StripPrefix("/static/", fs)
+	// listening...
 	log.Fatal(http.ListenAndServe(":3000", r))
 }
